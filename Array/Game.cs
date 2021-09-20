@@ -10,42 +10,29 @@ namespace Array
     
         public void Run()
         {
-            int[] arr = {20, 40, 12, 100, 15};
-            PrintArray(arr);
-            PrintSmallestAndLargest(arr);
+
+            int[] numbers = new int[] { 1, 2, 3, 4 };
+
+            numbers = AppendToArray(numbers, 5);
+
+
 
         }
-
-        void PrintArray(int[] arr)
+        
+        int[] AppendToArray(int[] arr, int value)
         {
+            //Create a new array with one more slot than the older one
+            int[] tempArray = new int[arr.Length + 1];
 
-            foreach (int num in arr)
-            {
-                Console.WriteLine(num);
-            }
-        }
-
-        void PrintSmallestAndLargest(int[] arr)
-        {
-            int largest = arr[0];
-            int smallest = arr[0];
-
+            //Copy the values from the old array into the new array
             for (int i = 0; i < arr.Length; i++)
             {
-                if (arr[i] > largest)
-                {
-                    largest = arr[i];
-                }
-
-                if (arr[i] < smallest)
-                {
-                    smallest = arr[i];
-                }
+                tempArray[i] = arr[i];
             }
 
-            Console.WriteLine("Largest: " + largest);
-            Console.WriteLine("Smallest: " + smallest);
+            tempArray[tempArray.Length - 1] = value;
 
+            return tempArray;
         }
 
 
